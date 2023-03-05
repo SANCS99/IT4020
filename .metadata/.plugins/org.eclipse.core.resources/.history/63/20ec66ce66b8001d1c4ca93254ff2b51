@@ -1,0 +1,73 @@
+package com.mtit.service;
+
+import java.util.Scanner;
+
+public class ServicePublishImpl implements ServicePublish {
+
+	@Override
+	public String publishService() {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		String yes="y";
+
+		
+
+		System.out.print("Do you want to get area of your room (yes=y & No=n): ");
+		String y = scanner.nextLine();
+
+		while(yes.equals(y)) {
+		    System.out.println("Enter Room length: ");
+		    int length = scanner.nextInt();
+
+		    System.out.println("Enter Room width: ");
+		    int width = scanner.nextInt();
+
+		    scanner.nextLine(); // consume the newline character
+
+		    int area=width*length;
+
+		    System.out.println("Room length is " + length + " and Room width is " + width);
+		    System.out.println("Room area is " + area);
+
+		    System.out.print("Do you want to get area of another room (yes=y & No=n): ");
+		    String x = scanner.nextLine();
+
+		    y=x;
+		}
+		
+		System.out.print("Are you curious about how many liters were used to paint your room? (yes=y & No=n): ");
+		String l = scanner.nextLine();
+
+		while(yes.equals(l)) {
+		    System.out.println("Enter Room length: ");
+		    int length_p = scanner.nextInt();
+
+		    System.out.println("Enter Room width: ");
+		    int width_p = scanner.nextInt();
+		    
+		    System.out.println("Enter Room height: ");
+		    int height_p = scanner.nextInt();
+
+		    scanner.nextLine(); // consume the newline character
+
+		    int leater=width_p*length_p*height_p-width_p*length_p;
+
+		    System.out.println("Room length is " + length_p + " and Room width is " + width_p);
+		    System.out.println("Room area is " + leater);
+
+		    System.out.print("Are you curious about how many liters were used to paint another room? (yes=y & No=n): ");
+		    String x = scanner.nextLine();
+
+		    l=x;
+		}
+		
+		scanner.close();    
+		
+		return "Execute the Publish service of Service publisher";
+	}
+	
+	
+
+}

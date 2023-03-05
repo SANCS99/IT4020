@@ -1,0 +1,25 @@
+package osgi_servicepublisher;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
+
+public class ServiceActivator implements BundleActivator {
+
+	
+	ServiceRegistration publishServiceRegistation;
+	
+
+	public void start(BundleContext context) throws Exception {
+		
+		System.out.println("Publisher Start");
+		ServicePublish publisherService = new ServicePublishImpl();
+		
+		publishServiceRegistation = context.registerService(ServicePublish.class.getName(), publisherService, null);
+		}
+
+	public void stop(BundleContext context) throws Exception {
+		System.out.println("Publisher stoped");
+	}
+
+}

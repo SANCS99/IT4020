@@ -1,0 +1,48 @@
+package com.mtit.service;
+
+import java.util.Scanner;
+
+public class ServicePublishImpl implements ServicePublish {
+
+	@Override
+	public String publishService() {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		String yes="y";
+		
+		
+		System.out.print("Do you want to get are of your room (yes=y & No=n): ");
+        String y = scanner.nextLine();
+		
+		while(yes.equals(y)) {
+			
+			
+	        
+	        System.out.println("Enter Room length: ");
+	        int length = scanner.nextInt();
+	        
+	        System.out.println("Enter Room width: ");
+	        int width = scanner.nextInt();
+	        
+	        int area=width*length;
+	        
+	        System.out.println("Room length is " + length + " and Room width is " + width);
+	        System.out.println("Room area is " + area);
+	        
+	        System.out.print("Do you want to get area of another room (yes=y & No=n): ");
+	        String x = scanner.nextLine();
+	        
+	        y=x;
+			
+		}
+		
+		scanner.close();    
+		
+		return "Execute the Publish service of Service publisher";
+	}
+	
+	
+
+}

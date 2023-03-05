@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+K:\Users\user\eclips\OSGI-new\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2441625661.index
+1781747251.index
+58746359.index
+387403874.index
+1110597177.index

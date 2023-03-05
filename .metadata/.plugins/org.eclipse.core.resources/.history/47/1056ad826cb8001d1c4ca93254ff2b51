@@ -1,0 +1,95 @@
+package com.mtit.service;
+
+import java.util.Scanner;
+
+public class ServicePublishImpl implements ServicePublish {
+
+	@Override
+	public String publishService() {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		String yes = "y";
+        String y = "";
+
+        do {
+            System.out.print("Do you wish to determine the number of tiles needed to cover the floor? (yes=y & No=n): ");
+            y = scanner.nextLine();
+
+            if (yes.equals(y)) {
+                System.out.print("Enter the length of the room in feet: ");
+                double length = scanner.nextDouble();
+
+                System.out.print("Enter the width of the room in feet: ");
+                double width = scanner.nextDouble();
+
+                System.out.print("Enter the size of each tile in inches: ");
+                double tile = scanner.nextDouble();
+
+                // Convert the tile size from inches to feet
+                tile = tile / 12.0;
+
+                // Calculate the area of the room
+                double area = length * width;
+
+                // Calculate the number of tiles required
+                double tiles = Math.ceil(area / tile);
+
+                System.out.println("The room is " + length + " feet by " + width + " feet.");
+                System.out.println("Each tile is " + (tile * 12) + " inches by " + (tile * 12) + " inches.");
+                System.out.println("You will need " + tiles + " tiles to cover the floor.");
+
+                System.out.print("Do you want to know how many tiles will be required to cover a different floor? (yes=y & No=n): ");
+                scanner.nextLine(); // consume the newline character left by nextDouble()
+            }
+        } while (yes.equals(y));
+        
+        
+		
+		System.out.print("Are you curious about how many liters were used to paint your room? (yes=y & No=n): ");
+		String l = scanner.nextLine();
+
+		while(yes.equals(l)) {
+			System.out.print("Enter the length of the room in feet: ");
+	        double length = scanner.nextDouble();
+
+	        System.out.print("Enter the width of the room in feet: ");
+	        double width = scanner.nextDouble();
+
+	        System.out.print("Enter the height of the room in feet: ");
+	        double height = scanner.nextDouble();
+
+	        System.out.print("Enter the number of doors in the room: ");
+	        int doors = scanner.nextInt();
+
+	        System.out.print("Enter the number of windows in the room: ");
+	        int windows = scanner.nextInt();
+
+	        System.out.print("Enter the number of coats of paint desired: ");
+	        int coats = scanner.nextInt();
+
+	        // Calculate the area of the walls
+	        double wallArea = 2 * (length + width) * height - doors * 20 - windows * 15;
+
+	        // Calculate the amount of paint required
+	        double paint = wallArea / 350.0 * coats;
+
+	        System.out.println("The room is " + length + " feet by " + width + " feet by " + height + " feet.");
+	        System.out.println("There are " + doors + " doors and " + windows + " windows in the room.");
+	        System.out.println("You will need " + paint + " liters of paint to cover the walls with " + coats + " coats.");
+
+		    System.out.print("Do you want to know how many liters were required to paint a different room? (yes=y & No=n): ");
+		    String x = scanner.nextLine();
+
+		    l=x;
+		}
+		
+		scanner.close();    
+		
+		return "Execute the Publish service of Service publisher";
+	}
+	
+	
+
+}

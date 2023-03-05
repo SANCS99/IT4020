@@ -1,0 +1,82 @@
+package com.mtit.service;
+
+import java.util.Scanner;
+
+public class ServicePublishImpl implements ServicePublish {
+
+	@Override
+	public String publishService() {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		String yes="y";
+
+		
+
+		System.out.print("Do you want to calculate area of your room (yes=y & No=n): ");
+		String y = scanner.nextLine();
+
+		while(yes.equals(y)) {
+			System.out.print("Enter the length of the room in feet: ");
+	        double length = scanner.nextDouble();
+
+	        System.out.print("Enter the width of the room in feet: ");
+	        double width = scanner.nextDouble();
+
+	        System.out.print("Enter the size of each tile in inches: ");
+	        double tile = scanner.nextDouble();
+
+	        // Convert the tile size from inches to feet
+	        tile = tile / 12.0;
+
+	        // Calculate the area of the room
+	        double area = length * width;
+
+	        // Calculate the number of tiles required
+	        double tiles = Math.ceil(area / tile);
+
+	        System.out.println("The room is " + length + " feet by " + width + " feet.");
+	        System.out.println("Each tile is " + (tile * 12) + " inches by " + (tile * 12) + " inches.");
+	        System.out.println("You will need " + tiles + " tiles to cover the floor.");
+
+		    System.out.print("Do you want to get area of another room (yes=y & No=n): ");
+		    String x = scanner.nextLine();
+
+		    y=x;
+		}
+		
+		System.out.print("Are you curious about how many liters were used to paint your room? (yes=y & No=n): ");
+		String l = scanner.nextLine();
+
+		while(yes.equals(l)) {
+		    System.out.println("Enter Room length: ");
+		    int length_p = scanner.nextInt();
+
+		    System.out.println("Enter Room width: ");
+		    int width_p = scanner.nextInt();
+		    
+		    System.out.println("Enter Room height: ");
+		    int height_p = scanner.nextInt();
+
+		    scanner.nextLine(); // consume the newline character
+
+		    int leater=width_p*length_p*height_p-width_p*length_p;
+
+		    System.out.println("Room length is " + length_p + " and Room width is " + width_p+ " and Room height is " + height_p);
+		    System.out.println("To paint your room, you'll need " + leater+ " liters.");
+
+		    System.out.print("Do you want to know how many liters were required to paint a different room? (yes=y & No=n): ");
+		    String x = scanner.nextLine();
+
+		    l=x;
+		}
+		
+		scanner.close();    
+		
+		return "Execute the Publish service of Service publisher";
+	}
+	
+	
+
+}
